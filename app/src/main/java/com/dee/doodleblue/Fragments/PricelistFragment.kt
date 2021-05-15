@@ -51,7 +51,6 @@ class PricelistFragment : Fragment() {
         view.searchbox.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 var filtertext = view.searchbox.text.toString().trim()
                 filter(filtertext.toLowerCase());
@@ -74,9 +73,9 @@ class PricelistFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     customalertcancel()
+
                     view?.swiperefresh
                         ?.isRefreshing = false
-
                     list.addAll(it.value.data)
                     adapter.setModelArrayList(list)
                     Log.d("TAG", "getItems: ${list}")

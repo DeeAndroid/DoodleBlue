@@ -9,11 +9,12 @@ import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import android.view.Display
 import android.widget.LinearLayout
-import com.dee.doodleblue.MVVM.apiModule
-import com.dee.doodleblue.MVVM.repositoryModule
-import com.dee.doodleblue.MVVM.retrofitModule
-import com.dee.doodleblue.MVVM.viewModelModule
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.dee.doodleblue.MVVM.*
 import com.dee.doodleblue.R
+import kotlinx.android.synthetic.main.fragment_pricelist.view.*
 import kotlinx.android.synthetic.main.loading.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -39,14 +40,12 @@ fun customalert(context: Context?) {
     dialog = Dialog(context!!)
     dialog?.setContentView(R.layout.loading)
     dialog!!.setCancelable(false)
-
     val activity=context as Activity
     val display: Display = activity!!.windowManager.defaultDisplay
     val size = Point()
     display.getSize(size)
     val width: Int = size.x
     val height: Int = size.y
-
     val parms = LinearLayout.LayoutParams(width, height)
     dialog!!.loadingcard.layoutParams = parms
     dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -59,3 +58,18 @@ fun customalertcancel() {
         dialog!!.dismiss()
     }
 }
+
+fun Toast(context: Context?, s: String) {
+    Toast.makeText(context, "$s", Toast.LENGTH_SHORT).show()
+}
+
+
+fun setCurrentFragment(activity: AppCompatActivity, fragment: Fragment) =
+    activity.supportFragmentManager.beginTransaction().apply {
+        replace(R.id.viewview, fragment)
+        commit()
+    }
+
+
+
+
