@@ -12,11 +12,8 @@ open class Viewmodels constructor(
 ): ViewModel()  {
 
 
-
      val AssestsResponse: MutableLiveData<Resource<Assests>> = MutableLiveData()
     val AssestsResponseviewmodel: LiveData<Resource<Assests>> get() = AssestsResponse
-
-
 
     //for Assests
       fun AssestsViewModel() = viewModelScope.launch {

@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     val activity = this@MainActivity as AppCompatActivity
-
+    var number:Int=10
 
 
 
@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
 
     }
 

@@ -67,4 +67,3 @@ val viewModelModule = module {
         single { provideHttpClient() }
         single { provideRetrofit(get(), get()) }
     }
-

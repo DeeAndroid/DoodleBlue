@@ -12,6 +12,7 @@
         tools:context=".Fragments.PricelistFragment">
 
 
+
         <TextView
             android:id="@+id/prices_text"
             android:layout_width="match_parent"
